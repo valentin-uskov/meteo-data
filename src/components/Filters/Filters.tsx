@@ -2,8 +2,7 @@ import { ChangeEvent, FC, useEffect, useMemo, useState } from 'react'
 import Select, { MultiValue } from 'react-select'
 import cn from 'classnames'
 
-import { cities } from '@/cities'
-import { Filter } from '@/models'
+import { City, Filter } from '@/models'
 import { generateOptionsFromCities } from '@/components/Filters/generateOptionsFromCities'
 import { validateTemperature } from '@/components/Filters/validateTemperature'
 import { SelectOption } from '@/components/Filters/models'
@@ -12,9 +11,10 @@ import styles from './Filters.module.scss'
 
 type Props = {
   onChange: (filters: Filter) => void
+  cities: City[]
 }
 
-const Filters: FC<Props> = ({ onChange }) => {
+const Filters: FC<Props> = ({ onChange, cities }) => {
   const [temperatureMin, setTemperatureMin] = useState<string>('')
   const [temperatureMax, setTemperatureMax] = useState<string>('')
   const [countries, setCountries] = useState<MultiValue<SelectOption>>([])

@@ -1,19 +1,19 @@
 import { FC, useEffect, useMemo, useRef } from 'react'
 
-import { cities } from '@/cities'
 import { generateBarChart } from './generateBarChart'
-import { ChartDataItem } from '@/models'
+import { ChartDataItem, City } from '@/models'
 import useResizeObserver from '@/hooks/useResizeObserver'
 
 import styles from './Chart.module.scss'
 
 type Props = {
   data: ChartDataItem[]
+  cities: City[]
   chartCityId: string | null
   clearChartCityId: () => void
 }
 
-const Chart: FC<Props> = ({ data, chartCityId, clearChartCityId }) => {
+const Chart: FC<Props> = ({ data, cities, chartCityId, clearChartCityId }) => {
   const svgRef = useRef(null)
   const wrapperRef = useRef(null)
   const cityName = useMemo(() => cities.find(({ id }) => id === chartCityId)?.name || null, [chartCityId])
