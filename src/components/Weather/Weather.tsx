@@ -5,7 +5,7 @@ import { INITIAL_FILTERS } from '@/components/Weather/constants'
 import { City, CityWeatherToday, CityWeatherWeek, Filter } from '@/models'
 import { generateChartData } from '@/components/Weather/generateChartData'
 import { getFilteredTodayWeather, getFilteredWeekWeather } from '@/components/Weather/filteredWeather'
-import Table from '@/components/Table'
+import WeatherTable from '@/components/WeatherTable'
 import Chart from '@/components/Chart'
 import Filters from '@/components/Filters'
 
@@ -21,11 +21,9 @@ const Weather: FC<Props> = ({ cities, todayWeather, weekWeather }) => {
   const [filters, setFilters] = useState<Filter>(INITIAL_FILTERS)
   const [chartCityId, setChartCityId] = useState<string | null>(null)
 
-  const filteredTodayWeather = useMemo(() => getFilteredTodayWeather(todayWeather, filters), [todayWeather, filters])
-  const filteredWeekWeather = useMemo(
-    () => getFilteredWeekWeather(weekWeather, filteredTodayWeather),
-    [weekWeather, filteredTodayWeather],
-  )
+  const filteredTodayWeather = getFilteredTodayWeather(todayWeather, filters)
+  const filteredWeekWeather = getFilteredWeekWeather(weekWeather, filteredTodayWeather)
+
   const chartData = useMemo(
     () => generateChartData(filteredWeekWeather, chartCityId),
     [filteredWeekWeather, chartCityId],
@@ -48,7 +46,7 @@ const Weather: FC<Props> = ({ cities, todayWeather, weekWeather }) => {
       </div>
       <div className={styles.pane}>
         <Filters onChange={handleFilterChange} cities={cities} />
-        <Table citiesWeather={filteredTodayWeather} onCityClick={setChartCityId} />
+        <WeatherTable citiesWeather={filteredTodayWeather} onCityClick={setChartCityId} />
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import { getTodayCitiesWeather } from '@/app/getTodayCitiesWeather'
 import { getWeekCitiesWeather } from '@/app/getWeekCitiesWeather'
 import { getCities } from '@/app/getCities'
 
-export default async function Home() {
+const Home = async () => {
   const cities = await getCities()
   const todayWeather = await getTodayCitiesWeather(cities)
   const weekWeather = await getWeekCitiesWeather(cities)
@@ -14,3 +14,5 @@ export default async function Home() {
     </main>
   )
 }
+
+export default Home

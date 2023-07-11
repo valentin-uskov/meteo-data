@@ -2,14 +2,14 @@ import { FC } from 'react'
 
 import { CityWeatherToday } from '@/models'
 
-import styles from './Table.module.scss'
+import styles from './WeatherTable.module.scss'
 
 type Props = {
   citiesWeather: CityWeatherToday[]
   onCityClick: (cityId: string) => void
 }
 
-const Table: FC<Props> = ({ citiesWeather, onCityClick }) =>
+const WeatherTable: FC<Props> = ({ citiesWeather, onCityClick }) =>
   citiesWeather.length ? (
     <table className={styles.table}>
       <thead>
@@ -39,4 +39,4 @@ const Table: FC<Props> = ({ citiesWeather, onCityClick }) =>
     <span className={styles.message}>Cities not found</span>
   )
 
-export default Table
+export default WeatherTable

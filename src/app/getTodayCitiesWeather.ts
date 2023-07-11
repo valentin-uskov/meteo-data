@@ -1,23 +1,23 @@
 import { City, CityWeatherToday } from '@/models'
-import { getTodayCityWeather } from '@/api/openMeteo'
+import { getTodayCityWeather } from '@/weatherApi/openMeteo'
 
 export const getTodayCitiesWeather = async (cities: City[]) => {
-  const todayCitiesWeather: CityWeatherToday[] = []
+  try {
+    const response = await Promise.all(
+      cities.map(({ latitude, longitude }) => getTodayCityWeather(latitude, longitude)),
+    )
 
-  await Promise.all(cities.map(({ latitude, longitude }) => getTodayCityWeather(latitude, longitude)))
-    .then((data) => {
-      cities.forEach((city, index) => {
-        todayCitiesWeather.push({
-          id: city.id,
-          city: city.name,
-          country: city.country,
-          temperatureMax: Math.round(+data[index].daily.temperature_2m_max[0]),
-          temperatureMin: Math.round(+data[index].daily.temperature_2m_min[0]),
-          windDirection: +data[index].daily.winddirection_10m_dominant[0],
-        })
-      })
-    })
-    .catch(console.log)
+    const todayCitiesWeather: CityWeatherToday[] = cities.map((city, index) => ({
+      id: city.id,
+      city: city.name,
+      country: city.country,
+      temperatureMax: Math.round(+response[index].daily.temperature_2m_max[0]),
+      temperatureMin: Math.round(+response[index].daily.temperature_2m_min[0]),
+      windDirection: +response[index].daily.winddirection_10m_dominant[0],
+    }))
 
-  return todayCitiesWeather
+    return todayCitiesWeather
+  } catch (e) {
+    throw new Error('Unable to fetch today weather')
+  }
 }
