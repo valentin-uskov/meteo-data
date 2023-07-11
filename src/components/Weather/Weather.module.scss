@@ -1,0 +1,25 @@
+@import "../../variables";
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    margin: $spacing-huge;
+
+    > *:nth-of-type(1) {
+        width: 100%;
+        max-width: 454px;
+    }
+
+    > *:nth-of-type(2) {
+        width: 100%;
+        max-width: 640px;
+    }
+}
+
+.pane {
+    border-radius: $border-radius-regular;
+    background-color: $dark-color;
+    padding: $spacing-big;
+    margin: $spacing-small;
+}

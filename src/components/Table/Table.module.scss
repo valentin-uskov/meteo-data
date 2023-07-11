@@ -1,0 +1,86 @@
+@import "../../variables";
+
+.table {
+    width: 100%;
+    border-radius: $border-radius-regular;
+    border: 1px solid $secondary-color;
+    overflow: hidden;
+    border-spacing: 0;
+
+    th {
+        background-color: #000000;
+        padding: $spacing-regular $spacing-big;
+        text-align: right;
+
+        &:first-of-type {
+            text-align: left;
+        }
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: $secondary-color;
+    }
+
+    td {
+        padding: $spacing-small $spacing-big;
+        text-align: right;
+
+        &:first-of-type {
+            text-align: left;
+        }
+    }
+
+}
+
+.button {
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    transition: color .3s;
+
+    &:hover {
+        color: $secondary-text-color;
+    }
+}
+
+.message {
+    display: block;
+    margin: $spacing-big;
+    text-align: center;
+}
+
+
+@media (max-width: $breakpoint-small) {
+    .table {
+        font-size: 12px;
+
+        th {
+            font-weight: 400;
+            padding: $spacing-small $spacing-tiny;
+            text-align: center;
+
+            &:first-of-type {
+                text-align: left;
+            }
+        }
+
+        td {
+            font-size: 12px;
+            padding: $spacing-small $spacing-tiny;
+            text-align: center;
+
+            &:first-of-type {
+                text-align: left;
+            }
+        }
+
+    }
+
+    .button {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,159 @@
+@import "../../variables";
+
+.wrapper {
+  margin: $spacing-small 0 $spacing-big 0;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.input {
+  font-family: inherit;
+  font-size: inherit;
+  color: $primary-text-color;
+  border: 1px solid $light-color;
+  border-radius: $border-radius-regular;
+  background-color: $secondary-color;
+  padding: 0 $spacing-big;
+  height: 40px;
+  width: 160px;
+  outline: none;
+  margin: 0 $spacing-small $spacing-small 0;
+  transition: border .3s;
+
+  &:hover:not(:focus) {
+    border: 1px solid $primary-text-color;
+  }
+
+  &:focus {
+    border: 1px solid #b3fc4f;
+  }
+
+  &::placeholder {
+    color: $secondary-text-color;
+  }
+}
+
+.hasError {
+  border: 1px solid #d02e2e;
+
+  &:hover:not(:focus),
+  &:focus {
+    border: 1px solid #d02e2e;
+  }
+}
+
+.error {
+  width: 100%;
+  margin-top: $spacing-small;
+  font-size: 12px;
+  color: #d02e2e;
+}
+
+.multiSelect {
+  margin: 0 $spacing-small $spacing-small 0;
+
+  :global {
+    .select-inner {
+
+      &__placeholder {
+        color: $secondary-text-color;
+      }
+
+      &__control {
+        min-width: 160px;
+        min-height: 40px;
+        padding: 0 $spacing-small 0 6px;
+        color: $primary-text-color;
+        border-radius: $border-radius-regular;
+        background-color: $secondary-color;
+        box-shadow: none;
+        border: 1px solid $light-color;
+        font-size: inherit;
+        transition: border .3s;
+
+        &:hover {
+          border: 1px solid $primary-text-color;
+        }
+
+        &--is-focused {
+          border: 1px solid #b3fc4f;
+
+          &:hover {
+            border: 1px solid #b3fc4f;
+          }
+        }
+      }
+
+      &__input-container {
+        color: $primary-text-color;
+      }
+
+      &__menu {
+        margin: 2px 0;
+        border-radius: $border-radius-regular;
+        background-color: $secondary-color;
+      }
+
+      &__option {
+        &--is-focused {
+             background-color: $primary-color;
+        }
+      }
+
+      &__multi-value {
+        background-color: #000000;
+        color: $primary-text-color;
+        border-radius: 4px;
+
+        &__remove {
+          &:hover  {
+            background-color: $primary-text-color;
+            color: $secondary-color;
+          }
+        }
+
+        &__label {
+          color: inherit;
+        }
+      }
+
+      &__indicator-separator {
+        display: none;
+      }
+
+      &__indicator {
+        padding: $spacing-small $spacing-small $spacing-small 0;
+        color: $primary-text-color;
+
+        &:hover {
+          color: $primary-text-color;
+        }
+
+         svg {
+           width: 14px;
+           height: 14px;
+         }
+      }
+
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .filters {
+    flex-wrap: wrap;
+  }
+
+  .multiSelect {
+    width: 100%;
+
+    :global {
+      .select-inner__control {
+          width: 100%;
+      }
+    }
+  }
+}

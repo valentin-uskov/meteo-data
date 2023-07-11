@@ -1,0 +1,58 @@
+export const cities = [
+  {
+    id: '1',
+    name: 'Kyiv',
+    country: 'Ukraine',
+    latitude: '50.4547',
+    longitude: '30.5238',
+  },
+  {
+    id: '2',
+    name: 'Dnipro',
+    country: 'Ukraine',
+    latitude: '48.4666',
+    longitude: '35.0407',
+  },
+  {
+    id: '3',
+    name: 'Odesa',
+    country: 'Ukraine',
+    latitude: '46.4857',
+    longitude: '30.7438',
+  },
+  {
+    id: '4',
+    name: 'London',
+    country: 'England',
+    latitude: '51.5085',
+    longitude: '-0.1257',
+  },
+  {
+    id: '5',
+    name: 'Helsinki',
+    country: 'Finland',
+    latitude: '60.1695',
+    longitude: '24.9354',
+  },
+  {
+    id: '6',
+    name: 'Venice',
+    country: 'Italy',
+    latitude: '45.4371',
+    longitude: '12.3326',
+  },
+  {
+    id: '7',
+    name: 'Luxembourg',
+    country: 'Luxembourg',
+    latitude: '49.75',
+    longitude: '6.1667',
+  },
+  {
+    id: '8',
+    name: 'Amsterdam',
+    country: 'Netherlands',
+    latitude: '52.374',
+    longitude: '4.8897',
+  },
+]

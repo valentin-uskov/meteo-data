@@ -1,0 +1,86 @@
+@import "../../variables";
+
+.legend {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 24px;
+    margin-bottom: $spacing-regular;
+
+    h3 {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    > span {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 500;
+
+        &::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: #b3fc4f;
+            border-radius: 2px;
+            margin-right: $spacing-small;
+        }
+    }
+}
+
+.city {
+    display: flex;
+    align-items: center;
+
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        margin: 0 $spacing-small;
+        padding: 0;
+        background-color: $light-color;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 10px;
+        color: $primary-text-color;
+        transition: background-color .3s;
+
+        &:hover {
+            background-color: $dark-color;
+        }
+    }
+}
+
+.chart {
+    width: 100%;
+    height: 350px;
+
+    :global {
+        .domain {
+            display: none;
+        }
+
+        .tick line {
+            stroke-dasharray: 8 4;
+            stroke: $secondary-color;
+        }
+    }
+}
+
+.message {
+    display: block;
+    margin: $spacing-huge $spacing-big;
+    padding-top: $spacing-huge;
+    text-align: center;
+}
+
+@media (max-width: $breakpoint-small) {
+    .chart {
+        height: 280px;
+    }
+}
