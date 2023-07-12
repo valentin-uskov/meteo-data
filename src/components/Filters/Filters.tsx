@@ -50,7 +50,7 @@ const Filters: FC<Props> = ({ onChange, cities }) => {
       temperatureMin:
         temperatureMin.length && isTemperatureMinValid && !isNaN(+temperatureMin) ? +temperatureMin : null,
     })
-  }, [countries, temperatureMin, temperatureMax, isTemperatureMaxValid, isTemperatureMaxValid])
+  }, [countries, temperatureMin, temperatureMax, isTemperatureMaxValid, isTemperatureMinValid])
 
   return (
     <div className={styles.wrapper}>

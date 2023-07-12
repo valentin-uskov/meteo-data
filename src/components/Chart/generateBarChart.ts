@@ -55,7 +55,7 @@ export const generateBarChart = (SVGElement: SVGElement, data: ChartDataItem[]) 
   bars
     .data(data)
     .join('path')
-    .attr('x', ({ label }) => xScale(label)!)
+    .attr('x', ({ label }) => xScale(label) || 0)
     .attr('y', ({ value }) => yScale(value))
     .attr('width', xScale.bandwidth())
     .attr('height', ({ value }) => height - yScale(value))
